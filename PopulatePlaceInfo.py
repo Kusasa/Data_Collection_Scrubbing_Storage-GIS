@@ -1,4 +1,4 @@
-# Program populates the locational references of the geometric objects of a target shapefile
+# Program populates the locational references of the geometric objects of a target shapefile for the Master Layers
 
 import arcpy
 
