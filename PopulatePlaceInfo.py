@@ -39,7 +39,7 @@ try:
             print (UpdateValue)
 
             #select source by attribute using search cursor
-            where_clause = "'" + '"' + target_field[n] + '"' + '==' + UpdateValue + "'"
+            where_clause = "'" + '"' + target_fields[n] + '"' + '==' + UpdateValue + "'"
             print(where_clause)
             arcpy.SelectLayerByAttribute_management (source_feat_lyr, "NEW_SELECTION", where_clause)
 
