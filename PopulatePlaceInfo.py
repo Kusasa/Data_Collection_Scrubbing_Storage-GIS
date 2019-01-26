@@ -1,47 +1,62 @@
-# Program populates the locational references of the geometric objects of a target shapefile
+# Program populates the political location references of the geometric objects of a target shapefile
 
 import arcpy
+arcpy.env.overwriteOutput = True
 
 
 # Request input of target layer and declare its shp and dbf files
-print("Enter absolute path of target layer (NB: exclude extension of file)")
-target_layer = raw_input()
-target_shp = target_layer + ".shp"
-target_dbf = target_layer + ".dbf"
+#print("Enter workspace path")
+#workspace = raw_input()
+#arcpy.env.workspace = workspace
+arcpy.env.workspace = "C:/Users/User/Documents/Programming/Data/Outputs"
 
-#Request name of the field that needs to be populated in the target layer
-print("Enter name of the field that needs to be populated in the target layer")
-target_fieldname = raw_input()
-target_field = "!" + target_fieldname + "!"
+# Declare target and source shapefile names
+target_shp = "TargetFile.shp"
+target_dbf = "TargetFile.dbf"
 
-# Request input of source layer and declare its dbf files
-print("Enter absolute path of source layer (NB: exclude extension of file)")
-source_layer = raw_input()
-source_dbf = source_layer + ".dbf"
+source_shp = "PolBounds.shp"
+source_dbf = "PolBounds.dbf"
 
-# Set local variables
-target_feat_lyr = arcpy.MakeFeatureLayer_management(target_dbf, "target_feat_lyr")
-source_feat_lyr = arcpy.MakeFeatureLayer_management(source_dbf,"source_feat_lyr")
-tblrow = arcpy.SearchCursor(source_feat_lyr,'PROVINCE')  
+# Declare the field names that need to be copied from the source layer to the target layer
+target_fields = ["LOCAL_MUNI", "DISTR_MUNI", "PROVINCE", "COUNTRY"]
+source_fields = target_fields
 
+# Set the local variables
+target_feat_lyr = arcpy.MakeFeatureLayer_management(target_shp,"target_feat_lyr")
+source_feat_lyr = arcpy.MakeFeatureLayer_management(source_shp,"source_feat_lyr")
+tblrows = arcpy.SearchCursor(source_feat_lyr)
 
-# Populate the target field of the target layer
+# Perfom selections and corresponding copying of values across respective fields of source and target layers
 try:
-    for row in tblrow:
-        #select source by attribute using search cursor
-        arcpy.SelectLayerByAttribute_management (source_feat_lyr, "NEW_SELECTION")
-    
-        #select target by location using intersection
-        arcpy.SelectLayerByLocation_management (target_feat_lyr, "HAVE_THEIR_CENTER_IN", source_feat_lyr, "#", "NEW_SELECTION", "NOT_INVERT")
+    n = 0
+    for places in source_fields:
 
-        #Declare value to be copied accross
-        UpdateValue = row['PROVINCE']
+        for row in tblrows:
+            #Declare value to be copied from source layer
+            UpdateValue = row.getValue(source_fields[n])
+            UpdateValue = str(UpdateValue)
+            UpdateValue = '"' + UpdateValue + '"'
+            print (UpdateValue)
 
-        #Copy value into selection
-        arcpy.CalculateField_management(target_dbf, target_field, UpdateValue, "PYTHON")
+            #select source by attribute using search cursor
+            where_clause = "'" + '"' + target_field[n] + '"' + '==' + UpdateValue + "'"
+            print(where_clause)
+            arcpy.SelectLayerByAttribute_management (source_feat_lyr, "NEW_SELECTION", where_clause)
 
+            #select target by location using intersection with source selection
+            arcpy.SelectLayerByLocation_management (target_feat_lyr, "HAVE_THEIR_CENTER_IN", source_feat_lyr, "#", "REMOVE_FROM_SELECTION","NOT_INVERT")
 
-    print("Process Complete: target field populated in the target shapefile")
+            #Copy value into selection
+            print(target_dbf)
+            arcpy.CalculateField_management(target_feat_lyr, target_fields[n], UpdateValue, "PYTHON", "#")
+            
+
+        n += 1
+    arcpy.CopyFeatures_management(target_feat_lyr, target_shp)
 
 except:
     print(arcpy.GetMessages())
+
+print("Process Complete: target fields populated in the target shapefile")
+
+
