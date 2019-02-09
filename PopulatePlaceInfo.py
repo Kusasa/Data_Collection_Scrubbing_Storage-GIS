@@ -12,9 +12,7 @@ def attributePopulate (target_field):
     
     # Declare target and source shapefile names
     target_shp = "TargetFile.shp"
-    target_dbf = "TargetFile.dbf"
     source_shp = "PolBounds.shp"
-    source_dbf = "PolBounds.dbf"
 
     # Declare the field names that need to be copied from the source layer to the target layer
     target_field = str(target_field)
