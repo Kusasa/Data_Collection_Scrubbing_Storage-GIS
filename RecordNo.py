@@ -42,419 +42,419 @@ def recordNo (province, feature, cent_y, cent_x):
                 if len(str(ecCount)) == 1:
                         return country + province + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(ecCount)
                         
-                if len(str(ecCount)) == 2:
+                elif len(str(ecCount)) == 2:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(ecCount)                       
 
-                if len(str(ecCount)) == 3:
+                elif len(str(ecCount)) == 3:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(ecCount)
                         
-                if len(str(ecCount)) == 4:
+                elif len(str(ecCount)) == 4:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(ecCount)
                         
-                if len(str(ecCount)) == 5:
+                elif len(str(ecCount)) == 5:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(ecCount)
 
-                if len(str(ecCount)) == 6:
+                elif len(str(ecCount)) == 6:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(ecCount)
                         
-                if len(str(ecCount)) == 7:
+                elif len(str(ecCount)) == 7:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(ecCount)
                         
-                if len(str(ecCount)) == 8:
+                elif len(str(ecCount)) == 8:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(ecCount)
                         
-                if len(str(ecCount)) == 9:
+                elif len(str(ecCount)) == 9:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(ecCount)
                         
-                if len(str(ecCount)) == 10:
+                elif len(str(ecCount)) == 10:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(ecCount)
                         
-                if len(str(ecCount)) == 11:
+                elif len(str(ecCount)) == 11:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(ecCount)
                         
-                if len(str(ecCount)) == 12:
+                elif len(str(ecCount)) == 12:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(ecCount)
                         
-                if len(str(ecCount)) == 13:
+                elif len(str(ecCount)) == 13:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(ecCount)
                         
-                if len(str(ecCount)) == 14:
+                elif len(str(ecCount)) == 14:
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(ecCount)
 
                 else:
                         return None
 
-        if province == 'Free State':
+        elif province == 'Free State':
                 fsCount += 1
                 if len(str(fsCount)) == 1:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 2:
+                elif len(str(fsCount)) == 2:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 3:
+                elif len(str(fsCount)) == 3:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 4:
+                elif len(str(fsCount)) == 4:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 5:
+                elif len(str(fsCount)) == 5:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 6:
+                elif len(str(fsCount)) == 6:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 7:
+                elif len(str(fsCount)) == 7:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 8:
+                elif len(str(fsCount)) == 8:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(fsCount)
                         
-                if len(str(fsCount)) == 9:
+                elif len(str(fsCount)) == 9:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(fsCount)
                         
-                if len(str(fsCount)) == 10:
+                elif len(str(fsCount)) == 10:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(fsCount)
                         
-                if len(str(fsCount)) == 11:
+                elif len(str(fsCount)) == 11:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(fsCount)
                         
-                if len(str(fsCount)) == 12:
+                elif len(str(fsCount)) == 12:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(fsCount)
                         
-                if len(str(fsCount)) == 13:
+                elif len(str(fsCount)) == 13:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(fsCount)
                         
-                if len(str(fsCount)) == 14:
+                elif len(str(fsCount)) == 14:
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(fsCount)
 
                 else:
                         return None
 
-        if province == 'Gauteng':
+        elif province == 'Gauteng':
                 gpCount += 1
                 if len(str(gpCount)) == 1:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 2:
+                elif len(str(gpCount)) == 2:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 3:
+                elif len(str(gpCount)) == 3:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 4:
+                elif len(str(gpCount)) == 4:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 5:
+                elif len(str(gpCount)) == 5:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 6:
+                elif len(str(gpCount)) == 6:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 7:
+                elif len(str(gpCount)) == 7:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 8:
+                elif len(str(gpCount)) == 8:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(gpCount)
                         
-                if len(str(gpCount)) == 9:
+                elif len(str(gpCount)) == 9:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(gpCount)
                         
-                if len(str(gpCount)) == 10:
+                elif len(str(gpCount)) == 10:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(gpCount)
                         
-                if len(str(gpCount)) == 11:
+                elif len(str(gpCount)) == 11:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(gpCount)
                         
-                if len(str(gpCount)) == 12:
+                elif len(str(gpCount)) == 12:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(gpCount)
                         
-                if len(str(gpCount)) == 13:
+                elif len(str(gpCount)) == 13:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(gpCount)
                         
-                if len(str(gpCount)) == 14:
+                elif len(str(gpCount)) == 14:
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(gpCount)
                 
                 else:
                         return None
                 
-        if province == 'KwaZulu-Natal':
+        elif province == 'KwaZulu-Natal':
                 kznCount += 1
                 if len(str(kznCount)) == 1:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 2:
+                elif len(str(kznCount)) == 2:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 3:
+                elif len(str(kznCount)) == 3:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 4:
+                elif len(str(kznCount)) == 4:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 5:
+                elif len(str(kznCount)) == 5:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 6:
+                elif len(str(kznCount)) == 6:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 7:
+                elif len(str(kznCount)) == 7:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 8:
+                elif len(str(kznCount)) == 8:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(kznCount)
                         
-                if len(str(kznCount)) == 9:
+                elif len(str(kznCount)) == 9:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(kznCount)
                         
-                if len(str(kznCount)) == 10:
+                elif len(str(kznCount)) == 10:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(kznCount)
                         
-                if len(str(kznCount)) == 11:
+                elif len(str(kznCount)) == 11:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(kznCount)
                         
-                if len(str(kznCount)) == 12:
+                elif len(str(kznCount)) == 12:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(kznCount)
                         
-                if len(str(kznCount)) == 13:
+                elif len(str(kznCount)) == 13:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(kznCount)
                         
-                if len(str(kznCount)) == 14:
+                elif len(str(kznCount)) == 14:
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(kznCount)
 
                 else:
                         return None        
 
-        if province == 'Limpopo':
+        elif province == 'Limpopo':
                 lmCount += 1
                 if len(str(lmCount)) == 1:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 2:
+                elif len(str(lmCount)) == 2:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 3:
+                elif len(str(lmCount)) == 3:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 4:
+                elif len(str(lmCount)) == 4:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 5:
+                elif len(str(lmCount)) == 5:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 6:
+                elif len(str(lmCount)) == 6:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 7:
+                elif len(str(lmCount)) == 7:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 8:
+                elif len(str(lmCount)) == 8:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(lmCount)
                         
-                if len(str(lmCount)) == 9:
+                elif len(str(lmCount)) == 9:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(lmCount)
                         
-                if len(str(lmCount)) == 10:
+                elif len(str(lmCount)) == 10:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(lmCount)
                         
-                if len(str(lmCount)) == 11:
+                elif len(str(lmCount)) == 11:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(lmCount)
                         
-                if len(str(lmCount)) == 12:
+                elif len(str(lmCount)) == 12:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(lmCount)
                      
-                if len(str(lmCount)) == 13:
+                elif len(str(lmCount)) == 13:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(lmCount)
                         
-                if len(str(lmCount)) == 14:
+                elif len(str(lmCount)) == 14:
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(lmCount)
 
                 else:
                         return None        
 
-        if province == 'Mpumalanga':
+        elif province == 'Mpumalanga':
                 mpCount += 1
                 if len(str(mpCount)) == 1:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 2:
+                elif len(str(mpCount)) == 2:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 3:
+                elif len(str(mpCount)) == 3:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 4:
+                elif len(str(mpCount)) == 4:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 5:
+                elif len(str(mpCount)) == 5:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 6:
+                elif len(str(mpCount)) == 6:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 7:
+                elif len(str(mpCount)) == 7:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 8:
+                elif len(str(mpCount)) == 8:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(mpCount)
                         
-                if len(str(mpCount)) == 9:
+                elif len(str(mpCount)) == 9:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(mpCount)
                         
-                if len(str(mpCount)) == 10:
+                elif len(str(mpCount)) == 10:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(mpCount)
                         
-                if len(str(mpCount)) == 11:
+                elif len(str(mpCount)) == 11:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(mpCount)
                         
-                if len(str(mpCount)) == 12:
+                elif len(str(mpCount)) == 12:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(mpCount)
                         
-                if len(str(mpCount)) == 13:
+                elif len(str(mpCount)) == 13:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(mpCount)
                         
-                if len(str(mpCount)) == 14:
+                elif len(str(mpCount)) == 14:
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","")  + str(mpCount)
 
                 else:
                         return None        
 
-        if province == 'Northern Cape':
+        elif province == 'Northern Cape':
                 ncCount += 1
                 if len(str(ncCount)) == 1:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 2:
+                elif len(str(ncCount)) == 2:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 3:
+                elif len(str(ncCount)) == 3:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 4:
+                elif len(str(ncCount)) == 4:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 5:
+                elif len(str(ncCount)) == 5:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 6:
+                elif len(str(ncCount)) == 6:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 7:
+                elif len(str(ncCount)) == 7:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 8:
+                elif len(str(ncCount)) == 8:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(ncCount)
                         
-                if len(str(ncCount)) == 9:
+                elif len(str(ncCount)) == 9:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(ncCount)
                         
-                if len(str(ncCount)) == 10:
+                elif len(str(ncCount)) == 10:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(ncCount)
                         
-                if len(str(ncCount)) == 11:
+                elif len(str(ncCount)) == 11:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(ncCount)
                         
-                if len(str(ncCount)) == 12:
+                elif len(str(ncCount)) == 12:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(ncCount)
                         
-                if len(str(ncCount)) == 13:
+                elif len(str(ncCount)) == 13:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(ncCount)
                         
-                if len(str(ncCount)) == 14:
+                elif len(str(ncCount)) == 14:
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","")  + str(ncCount)
 
                 else:
                         return None        
 
-        if province == 'North West':
+        elif province == 'North West':
                 nwCount += 1
                 if len(str(nwCount)) == 1:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 2:
+                elif len(str(nwCount)) == 2:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 3:
+                elif len(str(nwCount)) == 3:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 4:
+                elif len(str(nwCount)) == 4:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 5:
+                elif len(str(nwCount)) == 5:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 6:
+                elif len(str(nwCount)) == 6:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 7:
+                elif len(str(nwCount)) == 7:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 8:
+                elif len(str(nwCount)) == 8:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(nwCount)
                         
-                if len(str(nwCount)) == 9:
+                elif len(str(nwCount)) == 9:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(nwCount)
                         
-                if len(str(nwCount)) == 10:
+                elif len(str(nwCount)) == 10:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(nwCount)
                         
-                if len(str(nwCount)) == 11:
+                elif len(str(nwCount)) == 11:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(nwCount)
                         
-                if len(str(nwCount)) == 12:
+                elif len(str(nwCount)) == 12:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(nwCount)
                         
-                if len(str(nwCount)) == 13:
+                elif len(str(nwCount)) == 13:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(nwCount)
                         
-                if len(str(nwCount)) == 14:
+                elif len(str(nwCount)) == 14:
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(nwCount)
 
                 else:
                         return None        
 
-        if province == 'Western Cape':
+        elif province == 'Western Cape':
                 wcCount += 1
                 if len(str(wcCount)) == 1:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 2:
+                elif len(str(wcCount)) == 2:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 3:
+                elif len(str(wcCount)) == 3:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 4:
+                elif len(str(wcCount)) == 4:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 5:
+                elif len(str(wcCount)) == 5:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 6:
+                elif len(str(wcCount)) == 6:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 7:
+                elif len(str(wcCount)) == 7:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 8:
+                elif len(str(wcCount)) == 8:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000000' + str(wcCount)
                         
-                if len(str(wcCount)) == 9:
+                elif len(str(wcCount)) == 9:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00000' + str(wcCount)
                         
-                if len(str(wcCount)) == 10:
+                elif len(str(wcCount)) == 10:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0000' + str(wcCount)
                         
-                if len(str(wcCount)) == 11:
+                elif len(str(wcCount)) == 11:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '000' + str(wcCount)
                         
-                if len(str(wcCount)) == 12:
+                elif len(str(wcCount)) == 12:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '00' + str(wcCount)
                         
-                if len(str(wcCount)) == 13:
+                elif len(str(wcCount)) == 13:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + '0' + str(wcCount)
                         
-                if len(str(wcCount)) == 14:
+                elif len(str(wcCount)) == 14:
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","")  + str(wcCount)
 
                 else:
