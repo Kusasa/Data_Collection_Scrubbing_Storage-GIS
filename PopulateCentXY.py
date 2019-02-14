@@ -2,10 +2,8 @@
 import arcpy
 
 
-# Request input of target shapefile and direct python to its dbf file
-print("Enter absolute path of shapefile (NB: exclude extension of file)")
-layer = raw_input()
-layer = layer + ".dbf"
+# Request input of target shapefile
+layer = arcpy.GetParameterAsText(0)
 
 #calculate CENT_X field
 arcpy.CalculateField_management(layer, "CENT_X", "!SHAPE.CENTROID.X!", "PYTHON_9.3")
