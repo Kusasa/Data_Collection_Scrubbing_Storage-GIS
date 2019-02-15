@@ -1,4 +1,12 @@
-# Program adds reference fields into the target shapefile
+"""----------------------------------------------------------------------------------
+Script Name:      Adds Reference Fields
+Version:          1.1
+Description:      This tool adds reference fields into the target shapefile.
+Created By:       Kusasalethu Sithole
+Date:             2018-11-27
+Last Revision:    2019-01-27
+----------------------------------------------------------------------------------"""
+
 import arcpy
 
 

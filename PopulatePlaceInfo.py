@@ -1,4 +1,12 @@
-# Program populates the feature code and political location references of the geometric objects of a target shapefile
+"""----------------------------------------------------------------------------------
+Script Name:      Populate Place References
+Version:          1.1
+Description:      This tool populates the feature code and political location 
+                  references of the geometric objects of a target shapefile.
+Created By:       Kusasalethu Sithole
+Date:             2019-01-23
+Last Revision:    2019-02-14
+----------------------------------------------------------------------------------"""
 
 import arcpy, os
 

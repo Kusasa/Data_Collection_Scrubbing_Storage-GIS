@@ -1,4 +1,12 @@
-# Program populates the record numbers of the geometric objects of a target shapefile
+"""----------------------------------------------------------------------------------
+Script Name:      Generate Record Numbers
+Version:          1.1
+Description:      This tool populates the record numbers of the geometric objects of
+                  a target shapefile.
+Created By:       Kusasalethu Sithole
+Date:             2019-02-13
+Last Revision:    2019-02-15
+----------------------------------------------------------------------------------"""
 
 import arcpy, os
 arcpy.env.overwriteOutput = True
@@ -82,7 +90,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'ECP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(ecCount)
 
                 else:
-                        return None
+                        return ""
 
         elif province == 'Free State':
                 fsCount += 1
@@ -129,7 +137,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'FSP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(fsCount)
 
                 else:
-                        return None
+                        return ""
 
         elif province == 'Gauteng':
                 gpCount += 1
@@ -176,7 +184,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'GAU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(gpCount)
                 
                 else:
-                        return None
+                        return ""
                 
         elif province == 'KwaZulu-Natal':
                 kznCount += 1
@@ -223,7 +231,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'KZN' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(kznCount)
 
                 else:
-                        return None        
+                        return ""        
 
         elif province == 'Limpopo':
                 lmCount += 1
@@ -270,7 +278,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'LMP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(lmCount)
 
                 else:
-                        return None        
+                        return ""        
 
         elif province == 'Mpumalanga':
                 mpCount += 1
@@ -317,7 +325,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'MPU' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","")  + str(mpCount)
 
                 else:
-                        return None        
+                        return ""        
 
         elif province == 'Northern Cape':
                 ncCount += 1
@@ -364,7 +372,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'NCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","")  + str(ncCount)
 
                 else:
-                        return None        
+                        return ""        
 
         elif province == 'North West':
                 nwCount += 1
@@ -411,7 +419,7 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'NWP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","") + str(nwCount)
 
                 else:
-                        return None        
+                        return ""        
 
         elif province == 'Western Cape':
                 wcCount += 1
@@ -458,10 +466,10 @@ def recordNo (province, feature, cent_y, cent_x):
                         return country + 'WCP' + feature + str(cent_y)[1:8].replace(".","") + str(cent_x)[0:7].replace(".","")  + str(wcCount)
 
                 else:
-                        return None        
+                        return ""        
 
         else:
-                return None
+                return ""
 
 #Evaluate field values using update cursor
 with arcpy.da.UpdateCursor(target_shp, ["RECNO", "PROVINCE", "FEATURE", "CENT_Y", "CENT_X"]) as cursor:
