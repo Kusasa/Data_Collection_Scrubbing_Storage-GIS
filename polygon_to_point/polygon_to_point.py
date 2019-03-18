@@ -31,21 +31,21 @@ arcpy.MultipartToSinglepart_management(polygon_layer, polygon_singlepart_layer)
 arcpy.AddField_management(polygon_singlepart_layer, "POLYGON_NO", "TEXT", "#", "#", 20, "#", "NULLABLE", "NON_REQUIRED", "#")
 
 #Populating polygon naming column using numbering with POL code(i.e. POL1, POL2,...) and Ceating a list of POLYGON_NO values
-tblrows = arcpy.SearchCursor(polygon_singlepart_layer)
 number = 1
 polygon_numbers = []
 fid = 0
 fields = ("FID","POLYGON_NO")
-with arcpy.UpdateCursor(polygon_singlepart_layer, fields) as Cursor:
+with arcpy.da.UpdateCursor(polygon_singlepart_layer, fields) as Cursor:   #@UndefinedVariable
         for row in Cursor:
             UpdateValue = 'POL' + str(number)
             polygon_numbers.append(UpdateValue)
-            UpdateValue = '"' + UpdateValue + '"'
             if row[0]==fid:
                 row[1] = UpdateValue
             Cursor.updateRow(row)
             fid += 1
             number += 1
+
+del Cursor
 
 #Converting polygons to points
 arcpy.FeatureVerticesToPoints_management(polygon_singlepart_layer,points_layer,"ALL")
@@ -54,22 +54,19 @@ arcpy.FeatureVerticesToPoints_management(polygon_singlepart_layer,points_layer,"
 arcpy.AddField_management(points_layer, "POINT_NO", "TEXT", "#", "#", 20, "#", "NULLABLE", "NON_REQUIRED", "#")
 
 #Selecting and adding point number per polygon for each record
-point_layer_feature = arcpy.MakeFeatureLayer_management(points_layer,"point_layer_feature")
-
 for index in range(len(polygon_numbers)):
-    no = "'" + polygon_numbers[index] + "'"
-    where_clause = '"POLYGON_NO"' + '='  + no
-    arcpy.SelectLayerByAttribute_management(point_layer_feature, 'NEW_SELECTION', where_clause)
-    
     n = 1
-    fields = ("POINT_NO")
-    with arcpy.UpdateCursor(point_layer_feature, fields) as Cursor:  
-        for row in Cursor:
-            value = "'" + str(polygon_numbers[index] + str(n)) + "'"
-            row[0] = value
-            Cursor.updateRow(row)
-            n += 1
+    columns = ("POLYGON_NO","POINT_NO")
+    with arcpy.da.UpdateCursor(points_layer, columns) as Cursor:   #@UndefinedVariable
+        for record in Cursor:
+            if record[0] == polygon_numbers[index]:
+                record[1] = record[0] + str(n)
+                Cursor.updateRow(record)
+                n += 1
+
+del Cursor
 
 #delete intermediary polygon_singlepart_layer
 arcpy.Delete_management(polygon_singlepart_layer)
 
+print("Process Complete")
