@@ -1,17 +1,17 @@
-"""-----------------------------------------------------------------------------------------------------
+"""--------------------------------------------------------------------------
 Script Name:      Polygon to Point Tool
 Version:          1.1
-Description:      Converts polygons to points and then numbers them by:
+Description:      Converts polygons to points and gives them ordered and 
+                  unique identifiers:
                     - Exploding the multipart polygons,
-                    - Adding column for polygon naming,
-                    - Populating polygon naming column using numbering with POL code(i.e. POL1, POL2,...),
-                    - Converting polygons to points,
-                    - Adding column for point naming,
-                    - Selecting and adding point number per polygon for each record.  
+                    - Creating unique polygon names(i.e. POL1, POL2,...),
+                    - Converting the polygons to points,
+                    - Creating unique and ordered point names within each 
+                      corresponding polygon (i.e. POL21, POL22, POL23...).  
 Created By:       Kusasalethu Sithole
 Date:             2019-03-18
 Last Revision:    2019-03-18
-------------------------------------------------------------------------------------------------------"""
+-----------------------------------------------------------------------------"""
 
 import arcpy
 
