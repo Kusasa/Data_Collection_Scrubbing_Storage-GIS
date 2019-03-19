@@ -2,11 +2,11 @@
 Script Name:      Polygon to Point Tool
 Version:          1.1
 Description:      Converts polygons to points and gives them ordered and 
-                  unique identifiers:
-                    - Exploding the multipart polygons,
+                  unique identifiers by:
+                    - Exploding its multipart polygons,
                     - Creating unique polygon names(i.e. POL1, POL2,...),
                     - Converting the polygons to points,
-                    - Creating unique and ordered point names within each 
+                    - And creating unique and ordered point names within each 
                       corresponding polygon (i.e. POL21, POL22, POL23...).  
 Created By:       Kusasalethu Sithole
 Date:             2019-03-18
