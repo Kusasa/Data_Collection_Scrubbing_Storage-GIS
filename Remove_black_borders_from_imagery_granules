@@ -1,0 +1,170 @@
+# """-----------------------------------------------------------------------------
+#  Script Name:      Remove black borders from imagery granules
+#  Description:      This tool will process the images for the mapsets by
+#                    performing the following steps:
+#                        1. Mosaic To New Raster
+#                        2. Sum up the single band images per multiband image
+#                        3. Use the summed image to set the 0-pixel area into null 
+#                           on the single band images
+#                        4. Composite the single band images into a multiband image
+#  Created By:       Kusasalethu Sithole
+#  Date:             2019-08-05
+#  Last Revision:    2019-08-05
+# -----------------------------------------------------------------------------"""
+
+# Import arcpy module
+import arcpy
+import time
+import logging
+import traceback
+import os
+import sys
+import shutil
+from arcpy.sa import *
+
+arcpy.env.overwriteOutput = True
+
+#define ramm_bk functions 1
+def currentSecondsTime():
+    """ Returns the current time in seconds"""
+    return int(time.time())
+
+#define ramm_bk functions 2
+def timeTaken(startTime, endTime):
+    """ Returns the difference between a start time and an end time
+        formatted as 00:00:00 """
+    timeTaken = endTime - startTime
+    return str(datetime.timedelta(seconds=timeTaken))
+
+#define ramm_bk functions 3
+def defineLogger(log_location=""):
+    """ Defines the formatting that will be used in the log file """
+    logger = logging.getLogger(__name__)
+    x = list(logger.handlers)
+    for i in x:
+        logger.removeHandler(i)
+        i.flush()
+        i.close()
+    logger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s : %(message)s')
+    file_handler = logging.FileHandler(log_location + '/log.log')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+    logger.debug(
+        "\n \n ********************** {} ************************\n \n".format(str(time.ctime())))
+    return logger
+
+#define ramm_bk functions 4
+def showPyMessage(message, logger, messageType="Message"):
+    """ Shows a formatted message to the user during processing and also adds the 
+        same message to the log file together with a time stamp. """
+    if (messageType == "Message"):
+        arcpy.AddMessage(str(time.ctime()) + " - " + message)
+        logger.debug(message)
+    if (messageType == "Warning"):
+        arcpy.AddWarning(str(time.ctime()) + " - " + message)
+        logger.warning(message)
+    if (messageType == "Error"):
+        arcpy.AddError(str(time.ctime()) + " - " + message)
+        logger.error(message)
+
+#define ramm_bk functions 5
+def handleExcept(logger):
+    """ Gets an expection and presents it to the user so that the tool doesn't break. 
+        Also logs the same message to the log file together with a timestamp. """
+    message = "\n*** PYTHON ERRORS *** "
+    showPyMessage(message, logger, "Error")
+    message = "Python Traceback Info: " + \
+        traceback.format_tb(sys.exc_info()[2])[0]
+    showPyMessage(message, logger, "Error")
+    message = "Python Error Info: " + \
+        str(sys.exc_type) + ": " + str(sys.exc_value) + "\n"
+    showPyMessage(message, logger, "Error")
+
+try:
+    # Point to imagery directories
+    images_folder = arcpy.GetParameterAsText(0)
+    output_location = arcpy.GetParameterAsText(1)
+
+    # initialize the configuration for the logger
+    logger = logging.getLogger(__name__)
+    logger.setLevel(logging.DEBUG)
+    formatter = logging.Formatter('%(asctime)s : %(message)s')
+    file_handler = logging.FileHandler(output_location + '/log.log')
+    file_handler.setFormatter(formatter)
+    logger.addHandler(file_handler)
+
+
+    showPyMessage("Step 1: Mosaic To New Raster ", logger)
+    arcpy.env.workspace = images_folder
+    for_mosaic = arcpy.ListRasters()
+    os.mkdir(output_location + "/mosaic_location")
+    mosaic_location = output_location + "/mosaic_location"
+
+    for x in for_mosaic:
+        showPyMessage("--- " + x, logger)
+        arcpy.MosaicToNewRaster_management(x, mosaic_location, os.path.basename(x).rstrip(os.path.splitext(
+            x)[1]) + ".tif", "", "8_BIT_UNSIGNED", "", "3", "LAST", "FIRST")
+        arcpy.AddMessage("-- done.")
+
+    showPyMessage("Step 2: Sum up the single band images per multiband image ", logger)
+    arcpy.env.workspace = mosaic_location
+    for_summation = arcpy.ListRasters()
+    os.mkdir(output_location + "/summed_band_images")
+    summed_band_images = output_location + "/summed_band_images"
+
+    for x in for_summation:
+        showPyMessage("--- " + x, logger)
+        outRas = Raster(x + "/Band_1") + Raster(x + "/Band_2") + Raster(x + "/Band_3")
+        outRas.save(summed_band_images + "/" + os.path.basename(x))
+        arcpy.AddMessage("-- done.")
+
+
+    showPyMessage("Step 3: Use the summed image to set the 0-pixel area into null on the single band images ", logger)
+    arcpy.env.workspace = summed_band_images
+    for_nullification = arcpy.ListRasters()
+    os.mkdir(output_location + "/nulled_singleband_images")
+    nulled_singleband_images = output_location + "/nulled_singleband_images"
+
+    for x in for_nullification:
+        showPyMessage("--- " + x, logger)
+        SetNull (x, mosaic_location + "/" + os.path.basename(x) + "/Band_1", "VALUE = 0").save(nulled_singleband_images + "/" + os.path.basename(x).rstrip(os.path.splitext(x)[1]) + "_Band_1.tif")
+        SetNull (x, mosaic_location + "/" + os.path.basename(x) + "/Band_2", "VALUE = 0").save(nulled_singleband_images + "/" + os.path.basename(x).rstrip(os.path.splitext(x)[1]) + "_Band_2.tif")
+        SetNull (x, mosaic_location + "/" + os.path.basename(x) + "/Band_3", "VALUE = 0").save(nulled_singleband_images + "/" + os.path.basename(x).rstrip(os.path.splitext(x)[1]) + "_Band_3.tif")
+        arcpy.AddMessage("-- done.")
+
+
+    showPyMessage("Step 4: Composite the single band images into a multiband image ", logger)
+    for_composition = for_nullification
+
+    for x in for_composition:
+        showPyMessage("--- " + x, logger)
+        band1 = nulled_singleband_images + "/" + os.path.basename(x).rstrip(os.path.splitext(x)[1]) + "_Band_1.tif"
+        band2 = nulled_singleband_images + "/" + os.path.basename(x).rstrip(os.path.splitext(x)[1]) + "_Band_2.tif"
+        band3 = nulled_singleband_images + "/" + os.path.basename(x).rstrip(os.path.splitext(x)[1]) + "_Band_3.tif"
+        composite = output_location + "/" + os.path.basename(x)
+        arcpy.CompositeBands_management([band1,band2,band3],composite)
+        arcpy.Delete_management(x)
+        arcpy.Delete_management(band1)
+        arcpy.Delete_management(band2)
+        arcpy.Delete_management(band3)
+        arcpy.AddMessage("-- done.")
+
+
+    arcpy.env.workspace = output_location
+    shutil.rmtree(output_location + "/mosaic_location")
+    shutil.rmtree(output_location + "/summed_band_images")
+    shutil.rmtree(output_location + "/nulled_singleband_images")
+
+
+    showPyMessage("Image Processing Completed Successfully.", logger)
+
+except:
+    message = "\n*** PYTHON ERRORS *** "
+    showPyMessage(message, logger)
+    message = "Python Traceback Info: " + \
+        traceback.format_tb(sys.exc_info()[2])[0]
+    showPyMessage(message, logger)
+    message = "Python Error Info: " + \
+        str(sys.exc_type) + ": " + str(sys.exc_value) + "\n"
+    showPyMessage(message, logger)
